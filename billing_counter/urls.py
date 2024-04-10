@@ -14,8 +14,12 @@ urlpatterns = [
     path('api/v1/schema/docs/', SpectacularSwaggerView().as_view(url_name='api-schema')),
     # AuthToken url
     path('api-token-auth/', auth_views.obtain_auth_token),
+    # Register and Log In Employee
     path('api/v1/employees/register/', views.EmployeeRegisterCreateView.as_view(), name='employee-register'),
     path('api/v1/employees/login/', views.EmployeeLoginCreateView.as_view(), name='employee-login'),
+    # Register and Log in Custmer
+    path('api/v1/cutomers/register/', views.CustomerRegisterView.as_view(), name='customer-register'),
+    path('api/v1/cutomers/login/', views.CustomerLoginCreateView.as_view(), name='customer-login'),
     # Add Product to Product Database
-    path('api/v1/orders/order-item/', views.OrderCreateView.as_view(), name='order-create'),
+    path('api/v1/orders/order-item/', views.OrderCreateView.as_view(), name='order-create'), # Not Completed
 ]
