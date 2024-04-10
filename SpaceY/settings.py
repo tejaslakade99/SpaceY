@@ -17,7 +17,7 @@ import os
 load_dotenv()
 # Import dj-database-url at the beginning of the file.
 import dj_database_url
-from drf_spectacular.contrib import django_filters
+# from drf_spectacular.contrib import django_filters
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,7 +33,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*', 'localhost:8000']
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -44,11 +44,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "billing_counter.apps.BillingCounterConfig",
     # External Packages
-    "rest_framework",
     "drf_spectacular",
-    # Internal Apps
+    "rest_framework",
+    "rest_framework.authtoken",
+    # Internal Apps,
+    "billing_counter.apps.BillingCounterConfig",
 ]
 
 MIDDLEWARE = [
@@ -143,4 +144,10 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-REST_FRAMEWORK = {}
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema'
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'SpaceY Project API'
+}
