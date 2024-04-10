@@ -1,16 +1,13 @@
 {
-  "builds": [{
-    "src" : "SpaceY/wsgi.py",
-    "use" : "@vercel/python",
-    "config": {
-      "maxLambdaSize": "15mb",
-      "runtime": "pythone3.9"
-    }
-  }],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "SpaceY/wsgi.py"
-    }
-  ]
+    "builds": [{
+        "src": "SpaceY/wsgi.py",
+        "use": "@vercel/python",
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+    }],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "SpaceY/wsgi.py"
+        }
+    ]
 }
